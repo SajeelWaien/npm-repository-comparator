@@ -31,11 +31,11 @@ export const getPackageDetails = async (params: { names: string[] }) => {
 export const listLanguages = async (packages: LanguagesParams[]) => {
     const promiseArr = packages.map(pkg => axios(
         `https://api.github.com/repos/${pkg.owner}/${pkg.repo}/languages`,
-        {
-            headers: {
-                'Authorization': `token ${import.meta.env.VITE_GITHUB_ACCESS_TOKEN}`
-            }
-        }
+        // {
+        //     headers: {
+        //         'Authorization': `token ${import.meta.env.VITE_GITHUB_ACCESS_TOKEN}`
+        //     }
+        // }
         ))
     const resp = await Promise.all(promiseArr)
     
